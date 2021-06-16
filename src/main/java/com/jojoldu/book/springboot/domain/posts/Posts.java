@@ -1,5 +1,6 @@
 package com.jojoldu.book.springboot.domain.posts;
 
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,8 +11,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 public class Posts {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     @Column(length = 500, nullable = false)
@@ -23,7 +25,7 @@ public class Posts {
     private String author;
 
     @Builder
-    public Posts(String title, String content,String author){
+    public Posts(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;
