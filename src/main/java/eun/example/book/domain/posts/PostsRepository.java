@@ -4,8 +4,10 @@ package eun.example.book.domain.posts;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface PostsRepository extends JpaRepository<Posts, Long>{
-    //Optional<Posts> findById(Long id);
+    @Query("SELECT p FROM Posts p ORDER BY p.id DESC")
+    //SELECT * FROM POSTS
+    List<Posts> findAllDesc();
 }
